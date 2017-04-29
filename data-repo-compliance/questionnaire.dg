@@ -1,0 +1,114 @@
+[>main< call: open]
+[call: FAIR]
+[call: citable]
+[call: trustworthy]
+[end]
+
+[>open< ask:
+  {text: Does the repository provide access to the data with minimal or no restrictions? }
+  {answers:
+    {yes:
+      [ask:
+        {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
+        {answers:
+          {yes:
+            [ask:
+              {text: Are the data covered by a commons-compliant license? }
+              {answers:
+                {yes:
+                  [ask:
+                    {text: Are the data provided in an open format? }
+                    {answers:
+                      {yes: [set: Assertions += Open]}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+][end]
+[>FAIR< ask:
+  {text: Does your repository assign persistent identifiers (PID)? }
+  {answers:
+    {yes:
+      [ask:
+        {text: Does the PID resolve to a landing page that describes the data? }
+        {answers:
+          {yes:
+            [ask:
+              {text: Does the repository ensure the persistence of the data and/or landing pages? }
+              {answers:
+                {yes:
+                  [ask:
+                    {text: Does the repository provide web-based search and access to the data and metadata? }
+                    {answers:
+                      {yes:
+                        [ask:
+                          {text:  Does the repository adhere to machine-readable metadata standards within use in the community? }
+                          {answers:
+                            {yes: [set: Assertions += FAIR]}
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+][end]
+
+[>citable< ask:
+  {text: Does the repository provide the required metadata for supporting data citation?}
+  {answers:
+    {yes:
+      [ask:
+        {text: Does the repository provide a machine-readable landing page?}
+        {answers:
+          {yes: [set: Assertions += Citable]}
+        }
+      ]
+    }
+  }
+][end]
+
+[>trustworthy< ask:
+  {text: Does the repository adhere to the requirements for the Data Repository Gold Seal of Approval? }
+  {terms:
+    {Data Repository Gold Seal of Approval: see https://www.datasealofapproval.org/en/information/requirements/}
+  }
+  {answers:
+    {yes:
+      [ask:
+        {text: Is the repository stakeholder governed?  }
+        {answers:
+          {yes:
+            [ask:
+              {text: Is the governance of the repository transparent?}
+              {answers:
+                {yes:
+                  [ask:
+                    {text: Is the code that runs the data infrastructure covered under an open source license?}
+                    {terms: }
+                    {answers:
+                      {yes: [set: Assertions += Trustworthy]}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
+[end]

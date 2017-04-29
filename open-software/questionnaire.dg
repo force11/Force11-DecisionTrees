@@ -1,0 +1,72 @@
+[>main< ask:
+  <* Why does the existance of the software matters? This interview is also useful
+   * for structuring an organizations towards a future softare, in a way that will allow it to be open. *>
+  {text: Does the software you wish to share already exist? }
+  {answers:
+      {no:[end]}
+  }]
+[>rights< ask:
+  {text: Do you have the rights to make the software open?}
+  {answers:
+    {no:
+      [set: DataLevel=L4][end]
+    }
+  }
+]
+[ask:
+  {text: Are there regulatory requirements that must be satisfied that limit open sharing? }
+  {answers:
+    {yes:
+      [ask:
+        {text: Is there a clear set of requirements that can be met to access and use the software according to Principle 1?}
+        {answers:
+            {yes: [set: DataLevel=L2][end]}
+            {no:
+              [ask:
+                {text: Are there a clear set of requirements for restricted use of the software? }
+                {answers:
+                  {yes: [set: DataLevel=L3]}
+                  {no: [set: DataLevel=L4]} <-- Michael's understanding, not explicitly mentioned in the draw.io diagram.
+                }
+              ]
+            }
+        }
+      ][end]
+    }
+  }
+]
+[>license< ask:
+  {text: Can you use a permissive license?}
+  {terms:
+    {permissive license: See, e.g., http://choosealicense.com/ .}
+  }
+  {answers:
+    {yes: [set: DataLevel=L1][todo: Might also be L2 - elaborate here.][end]}
+    {no:
+      [ask:
+        {text: Does your code use code from others that is allowed to be redistributed under a permissive license?}
+        {answers:
+          <-- {no: [set: DataLevel=L1]}
+          {yes:
+            [ask:
+              {text: Can you find equivalent code that is open to reuse and redistribute (under the conditions you plan to use it?) }
+              {answers:
+                <-- {yes: [set: DataLevel=L1] }
+                {no:
+                  [ask:
+                    {text: Can you rewrite the pieces of code that are proprietary? }
+                    {answers:
+                      <-- {yes: [set: DataLevel=L1]}
+                      {no: [set: DataLevel=L2][end]}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+      [set: DataLevel=L1]
+    }
+  }
+]

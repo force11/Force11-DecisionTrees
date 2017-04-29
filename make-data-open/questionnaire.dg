@@ -1,0 +1,76 @@
+[>main< ask:
+  {text: Does the data you wish to share already exist?}
+  {answers:
+    {no: [reject: See: making data open by design.]}
+  }
+]
+[>isDigital< ask:
+  {text: Are the data digital?}
+  {answers:
+    {yes:
+      [set: Media=digital]
+      [ask:
+        {text: Are the data in proprietary (closed) format?}
+        {terms:
+          {proprietary format: A file format whose specification is not open to the public, and thus cannot be reliably read without the usage of software whose code cannot be shared.}
+        }
+        {answers:
+          {yes:
+            [ask:
+              {text: Can the data be convetred into an open format?}
+              {answers:
+                {no: [set: DataLevel=L3]}
+              }
+            ]
+          }
+        }
+      ]
+    }
+    {no:
+      [set: Media=analog]
+      [ask:
+        {text: Can the data be digitized?}
+        {answers:
+          {no:
+            [set: DataLevel=L4]
+            [todo: Data may be L3 - complete this]
+            [end]
+          }
+        }
+      ]
+    }
+  }
+]
+<-- OK, Data is digital, now let's see if it can be opened.
+[>rights< ask:
+  {text: Do you have the rights to make the data open?}
+  {terms:
+    {rights to make open: NEED TO ELABORATE ON THIS} <-- TODO: Elaborate.
+  }
+  {answers:
+      {yes:
+        [>sensitivity< ask:
+          {text: Is it sensitive data that cannot be openly shared?}
+          {answers:
+            {no: [set: DataLevel=L1; IsSensitive=no][end]}
+            {yes:
+              [set: IsSensitive=yes]
+              [ask:
+                {text: Were permissions obtained to share the data within regulatory requirements?}
+                {answers:
+                  {yes: [set: DataLevel=L2][end] }
+                }
+              ]
+            }
+          }
+        ]
+      }
+  }
+]
+[ask:
+  {text: Has a description of the data been published or the data refereed? }
+  {answers:
+    {yes: [set: DataLevel=L3]}
+    {no: [set: DataLevel=L4]}
+  }
+]
