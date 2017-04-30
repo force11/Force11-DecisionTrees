@@ -1,4 +1,4 @@
-# Force11 - Desicion Trees Code for WG3
+# Force11 - Decision Trees Code for WG3
 
 This repository contains the source code for some decision trees developed by [Force11](http://force11.org)'s [WP3: Decision Trees](https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees).
 
