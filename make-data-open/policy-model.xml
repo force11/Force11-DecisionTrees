@@ -1,29 +1,33 @@
 <policy-model>
-    <title>Force11-Can I make my data open?</title>
-    <version doi="xyz">0.4</version>
-    <date>2017-04-23</date><!-- YYYY-MM-DD format -->
-    <authors>
-        <author orcid="123-2345-67890">
-            <name>Jane Doe</name>
-            <affiliation>Force 11</affiliation>
-            <orcid></orcid>
-        </author>
-        <group>
-          <name>Scholarly Commons Subworking Group 3</name>
-          <contact>Someone@scwg-dt.org</contact>
-        </group>
-    </authors>
-    <model answers="yes-first"> <!-- other options: yes-last, verbatim. Default: yes-first -->
-      <!-- pathes relative to model directory -->
-      <space>definitions.ts</space>
-      <graph>questionnaire.dg</graph>
-    </model>
-    <references>
-      <reference doi="1234567890">
-        ref1 text
-      </reference>
-      <reference doi="22222222222">
-        ref2 text
-      </reference>
-    </references>
+  <title>Force11-Can I make my data open?</title>
+  <version doi="xyz">0.4</version>
+  <date>2017-04-23</date>
+  <!-- YYYY-MM-DD format -->
+  <authors>
+    <!-- Need to finalize the fields for author types and fields -->
+    <person orcid="123-2345-67890">
+      <name>Jane Doe</name>
+      <affiliation>Force 11</affiliation>
+      <email>jane.d@institute.edu</email>
+    </person>
+    <group>
+      <name>Scholarly Commons Subworking Group 3</name>
+      <contact>Someone@scwg-dt.org</contact>
+    </group>
+  </authors>
+  <model answers="yes-first">
+    <!-- other options: yes-last, verbatim. Default: yes-first -->
+    <!-- pathes are relative to model directory -->
+    <space>definitions.ts</space>
+    <graph>questionnaire.dg</graph>
+  </model>
+  <references>
+    <!-- Need to finalize the fields for references -->
+    <reference doi="1234567890">
+      ref1 text
+    </reference>
+    <reference url="http://somewhere.org/important/doc">
+      ref2 text
+    </reference>
+  </references>
 </policy-model>
