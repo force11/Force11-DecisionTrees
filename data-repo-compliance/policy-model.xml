@@ -1,16 +1,16 @@
 <policy-model>
-  <title>Force11-Is the data FAIR?</title>
-  <version>0.2</version>
+  <title>Force11-Repository Complicance</title>
   <date>2017-04-23</date>
-  <keywords>FAIR, open, Force11</keywords>
+  <version>0.2</version>
+  <keywords>repository, open, Force11, software</keywords>
   <authors>
     <group>
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
     </group>
   </authors>
   <model answers-order="yes-first">
-    <space root="DataTags">definitions_FAIR_MM.ts</space>
-    <graph>questionnaire_FAIR_MM.dg</graph>
+    <space root="DataTags">definitions.ts</space>
+    <graph>questionnaire.dg</graph>
   </model>
   <references>
   </references>

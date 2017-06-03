@@ -1,19 +1,11 @@
 <policy-model>
-  <title>Force11-Can I make my data open?</title>
-  <version doi="xyz">0.4</version>
+  <title>Force11-Open Software</title>
+  <version>0.2</version>
   <date>2017-04-23</date>
-  <keywords>repository, open, Force11</keywords><!-- suggested keywords list here. -->
-  <!-- YYYY-MM-DD format -->
+  <keywords>repository, open, Force11, software</keywords>
   <authors>
-    <!-- Need to finalize the fields for author types and fields -->
-    <person orcid="123-2345-67890">
-      <name>Jane Doe</name>
-      <affiliation>Force 11</affiliation>
-      <email>jane.d@institute.edu</email>
-    </person>
     <group>
-      <name>Scholarly Commons Subworking Group 3</name>
-      <contact>Someone@scwg-dt.org</contact>
+      <name>Force 11: Scholarly Commons Subworking Group 3</name>
     </group>
   </authors>
   <model answers-order="yes-first">
