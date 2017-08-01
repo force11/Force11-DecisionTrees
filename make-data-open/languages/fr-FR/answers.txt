@@ -1,3 +1,0 @@
-# Default answer translation
-yes:oui
-no:non
