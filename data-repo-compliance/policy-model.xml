@@ -2,8 +2,13 @@
   <title>Force11-Repository Complicance</title>
   <date>2017-04-23</date>
   <version>0.2</version>
-  <keywords>repository, open, Force11, software</keywords>
+  <keywords>repository, FAIR, Force11, software</keywords>
   <authors>
+    <person orcid="0000-0002-8406-3871">
+      <name>Maryann E. Martone</name>
+      <affiliation>University of California, San Diego</affiliation>
+      <email>mmartone@ucsd.edu</email>
+    </person>
     <group>
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
     </group>
@@ -13,5 +18,31 @@
     <graph>questionnaire.dg</graph>
   </model>
   <references>
+    <reference doi="1234567890">
+    FAIR Data Principles
+    </reference>
+    <reference url="https://www.force11.org/group/fairgroup/fairprinciples">
+      <reference doi="1234567890">
+      FAIR Data Principles
+      </reference>
+      <reference url="https://www.force11.org/group/fairgroup/fairprinciples">
+      </reference>
+      <reference>
+      Data Citation Synthesis Group: Joint Declaration of Data Citation Principles. Martone M. (ed.) San Diego CA: FORCE11; 2014
+        </reference>
+      <reference url="https://www.force11.org/group/joint-declaration-data-citation-principles-final">
+      </reference>
+      <reference>
+        Data Gold Seal of Approval
+      </reference>
+      <reference>
+        <reference url ="https://www.datasealofapproval.org/en/information/requirements/">
+        </reference>
+        <reference>
+          Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1
+        </reference>
+        <reference>
+          <reference doi="10.6084/m9.figshare.1314859“>
+          </reference>
   </references>
 </policy-model>
