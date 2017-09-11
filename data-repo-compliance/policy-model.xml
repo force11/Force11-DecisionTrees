@@ -18,8 +18,8 @@
     <graph>questionnaire.dg</graph>
   </model>
   <references>
-      <reference>
-      Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018. doi: 10.1038/sdata.2016.18.
+      <reference doi="10.1038/sdata.2016.18">
+      Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018.
       </reference>
         <reference>
         Data Citation Synthesis Group: Joint Declaration of Data Citation Principles. Martone M. (ed.) San Diego CA: FORCE11; 2014 https://www.force11.org/group/joint-declaration-data-citation-principles-final
