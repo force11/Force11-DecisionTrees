@@ -1,1 +1,0 @@
-Does the repository provide access to the data with minimal or no restrictions? 

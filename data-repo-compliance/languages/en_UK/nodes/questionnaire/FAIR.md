@@ -1,1 +1,0 @@
-Does your repository assign persistent identifiers (PID)? 
