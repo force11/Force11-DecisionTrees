@@ -3,23 +3,26 @@
   <subtitle></subtitle>
   <version>0.1</version>
   <date>2017-07-11</date>
-  <!-- 
+  <!--
   <keywords></keywords>
   -->
   <authors>
-    <group>
-      <name>Scholarly Commons WG3</name>
-      <contact></contact>
-    </group>
+
     <!--
-    <person orcid="123-2345-67890">
-      <name>Jane Doe</name>
-      <affiliation>Institute</affiliation>
-      <email>jane.d@institute.edu</email>
+    <person orcid="0000-0003-1693-1240">
+      <name>Fiona Murphy</name>
+      <affiliation>University of Reading</affiliation>
+      <email>fiona.murphy@reading.ac.uk</email>
+    </person>
+  </person>
+    <person orcid="0000-0003-1693-1240">
+      <name>Maryann Martone</name>
+      <affiliation>UCSD</affiliation>
+      <email>maryann@ncmir.ucsd.edu</email>
     </person>
     <group>
-      <name>Working group</name>
-      <contact>hello@working-group.org</contact>
+      <name>Scholarly Commons WG3</name>
+      <contact>scwg3@force11.org</contact>
     </group>
       -->
   </authors>

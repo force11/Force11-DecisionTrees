@@ -95,9 +95,8 @@
               {text: Is the governance of the repository transparent?}
               {answers:
                 {yes:
-                  [ask:
+                  [>codeRun< ask:
                     {text: Is the code that runs the data infrastructure covered under an open source license?}
-                    {terms: }
                     {answers:
                       {yes: [set: Assertions += Trustworthy]}
                     }
