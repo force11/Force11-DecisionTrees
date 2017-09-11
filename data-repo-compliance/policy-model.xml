@@ -27,8 +27,8 @@
         <reference url="https://www.datasealofapproval.org/en/information/requirements/">
           Data Gold Seal of Approval
         </reference>
-      <reference>
-          Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1, retrieved [date], http://dx.doi.org/10.6084/m9.figshare.1314859
+      <reference doi="10.6084/m9.figshare.1314859">
+          Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1
           </reference>
   </references>
 </policy-model>
