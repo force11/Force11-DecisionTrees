@@ -1,12 +1,11 @@
 [>main< ask:
   {text: Are your data in a repository?}
   {answers:
-    {no: [todo: What is the level of data not in a repo?] <-- Fixed this so it would compile, not sure it's accurate. -- Michael
+    {yes: [todo: Put in a link to the "is your repository commons compliant decision tree. What is the level of data not in a repo?] <-- Fixed this so it would compile, not sure it's accurate. -- Michael
          [end]
     }
-  }
-]
-[ask:
+    {no:
+      [ask:
   {text: Is there a specialist community repository for your type of data?}
   {terms:
     {specialized community repository:  A repository that is tailored to a specific data type or domain that is broadly recognized by members of a field.}
