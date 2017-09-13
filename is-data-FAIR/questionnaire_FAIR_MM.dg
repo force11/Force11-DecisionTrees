@@ -2,8 +2,19 @@
   {text: Are your data in a repository?}
   {answers:
     {yes: [todo: Put in a link to the "is your repository commons compliant decision tree. What is the level of data not in a repo?] <-- Fixed this so it would compile, not sure it's accurate. -- Michael
-         [end]
-    }
+         [ask:
+           {text:  Is the repository commons compliant?}
+            {answers:
+              {yes:
+                [set: DataLevel1=L1]
+                [todo:  Data may be L1 - complete this]
+              }
+              {no:
+                [set: DataLevel3=L3]
+              }
+            }
+          ]
+        }
     {no:
       [ask:
   {text: Is there a specialist community repository for your type of data?}
@@ -60,4 +71,5 @@
       ]
     }
   }
+}
 ]
