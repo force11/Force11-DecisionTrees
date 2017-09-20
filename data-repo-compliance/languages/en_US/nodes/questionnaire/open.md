@@ -1,1 +1,3 @@
-Does the repository provide access to the data with minimal or no restrictions? 
+Does the repository provide access to the data with minimal or no restrictions?
+
+ "To facilitate data integration and open access data sharing, the [implementation] should waive all rights necessary for data extraction and re-use (including copyright, sui generis database rights, claims of unfair competition, implied contracts, and other legal rights), and MUST NOT apply any obligations on the user of the data or database such as “copyleft” or “share alike”, or even the legal requirement to provide attribution. Any implementation SHOULD define a non-legally binding set of citation norms in clear, lay-readable language.""  Adapted from [Principle 4.1, Science Commons open access protocol] (http://sciencecommons.org/projects/publishing/open-access-data-protocol/)
