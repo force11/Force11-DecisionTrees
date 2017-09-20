@@ -67,17 +67,24 @@
 ][end]
 
 [>citable< ask:
-  {text: Does the repository provide the required metadata for supporting data citation?}
-  {answers:
-    {yes:
-      [ask:
-        {text: Does the repository provide a machine-readable landing page?}
-        {answers:
-          {yes: [set: Assertions += Citable]}
+  {text: Does the repository allow you to associate your ORCID ID with a dataset?}
+    {answers:
+      {yes:
+        [ask:
+          {text: Does the repository provide the required metadata for supporting data citation?}
+            {answers:
+              {yes:
+                [ask:
+                  {text: Does the repository provide a machine-readable landing page?}
+                  {answers:
+                    {yes: [set: Assertions += Citable]}
+                  }
+                ]
+              }
+            }
+          ]
         }
-      ]
-    }
-  }
+      }
 ][end]
 
 [>trustworthy< ask:
