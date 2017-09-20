@@ -12,11 +12,11 @@
         {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
         {answers:
           {yes:
-            [ask:
+            [>DRC15<ask:
               {text: Are the data covered by a commons-compliant license? }
               {answers:
                 {yes:
-                  [ask:
+                  [>DRC19<ask:
                     {text: Are the data provided in an open format? }
                     {answers:
                       {yes: [set: Assertions += Open]}
