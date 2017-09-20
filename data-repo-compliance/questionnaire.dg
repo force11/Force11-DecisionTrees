@@ -32,10 +32,10 @@
   }
 ][end]
 [>FAIR< ask:
-  {text: Does your repository assign persistent identifiers (PID)? }
+  {text: Does your repository assign globally unique and persistent identifiers (PID)? }
   {answers:
     {yes:
-      [ask:
+      [>DRC38<ask:
         {text: Does the PID resolve to a landing page that describes the data? }
         {answers:
           {yes:
