@@ -8,7 +8,7 @@
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
     {yes:
-      [ask:
+      [>DRC11< ask:
         {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
         {answers:
           {yes:
