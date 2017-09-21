@@ -46,7 +46,8 @@
         [>sensitivity< ask:
           {text: Is it sensitive data that cannot be fully openly shared?}
           {answers:
-            {no: [set:IsSensitive=no]
+            {no:
+              [set:IsSensitive=no]
               [ask:
                 {text: Did you choose a license with minimal to no restrictions for reuse?}
                   {answers:
