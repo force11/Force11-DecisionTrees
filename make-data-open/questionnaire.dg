@@ -48,8 +48,8 @@
           {answers:
             {no:
               [set:IsSensitive=no]
-              [ask:
-                {text: Did you choose a license with minimal to no restrictions for reuse?}
+              [>OD51<ask:
+                {text: Did you choose a license with minimal to no restrictions for data reuse?}
                   {answers:
                     {yes: [set: DataLevel=L1][end] }}]}
             {yes:
