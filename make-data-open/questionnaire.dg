@@ -51,7 +51,7 @@
               [ask:
                 {text: Did you choose a license with minimal to no restrictions for reuse?}
                   {answers:
-                    {yes: [set: DataLevel=L1][end] }
+                    {yes: [set: DataLevel=L1][end] }}]}
             {yes:
               [set: IsSensitive=yes]
               [ask:
@@ -66,9 +66,6 @@
           }
         }
       ]
-    }
-  }
-]
 [ask:
   {text: Has a description of the data been published or the data refereed? }
   {answers:
