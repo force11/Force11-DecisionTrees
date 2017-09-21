@@ -3,8 +3,8 @@
   {answers:
     {yes:
       [todo: Put in a link to the "is your repository commons compliant decision tree. What is the level of data not in a repo?] <-- Fixed this so it would compile, not sure it's accurate. -- Michael
-      [ask:
-        {text:  Is the repository commons compliant?}
+      [>FD16<ask:
+        {text:  Does the repository implement the FAIR principles?}
         {answers:
           {yes:
             [set: DataLevel=L1]
