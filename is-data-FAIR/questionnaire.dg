@@ -22,8 +22,8 @@
           {specialized community repository:  A repository that is tailored to a specific data type or domain that is broadly recognized by members of a field.}}
         {answers:
           {yes:
-            [ask:
-              {text: Is the repository commons compliant?}
+            [>FD25<ask:
+              {text: Does the repository implement the FAIR principles?}
               {terms:
                 {commons compliant: A repository that makes data available according to the principles of the commons.  See decision tree XXXXX  }
               }
