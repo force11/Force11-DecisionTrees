@@ -41,9 +41,6 @@
 <-- OK, Data is digital, now let's see if it can be opened.
 [>rights< ask:
   {text: Do you have the rights to make the data open?}
-  {terms:
-    {rights to make open: NEED TO ELABORATE ON THIS} <-- TODO: Elaborate.
-  }
   {answers:
       {yes:
         [>sensitivity< ask:
