@@ -1,4 +1,4 @@
-# Force11-Repository Compliance
+# Force11-Making Data FAIR 1
 
 __Version 0.2__
 
