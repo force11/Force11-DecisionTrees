@@ -44,21 +44,28 @@
   {answers:
       {yes:
         [>sensitivity< ask:
-          {text: Is it sensitive data that cannot be openly shared?}
+          {text: Is it sensitive data that cannot be fully openly shared?}
           {answers:
-            {no: [set: DataLevel=L1; IsSensitive=no][end]}
+            {no: [set:IsSensitive=no]
+              [ask:
+                {text: Did you choose a license with minimal to no restrictions for reuse?}
+                  {answers:
+                    {yes: [set: DataLevel=L1][end] }
             {yes:
               [set: IsSensitive=yes]
               [ask:
                 {text: Were permissions obtained to share the data within regulatory requirements?}
                 {answers:
                   {yes: [set: DataLevel=L2][end] }
+                    }
+                  ]
                 }
-              ]
-            }
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
+    }
   }
 ]
 [ask:
