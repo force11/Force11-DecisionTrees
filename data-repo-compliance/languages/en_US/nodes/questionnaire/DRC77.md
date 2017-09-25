@@ -1,0 +1,3 @@
+Does the repository provide a machine-readable landing page?
+
+This question may be a bit harder to answer, but if the repository is implementing the FAIR principles, it will provide a programmatic interface to its metadata.  It will also ensure that the landing page containing the metadata for citation will have tags embedded so that a machine can read the different elements required for the citation, e.g., authors.  Why is this important for citation?  In order for data citation to be able to use reference managers and other tools for inserting and formatting citations, the repositories have to embed these metadata tags.  If the repository is FAIR, these tags will come from a recognized community standard, e.g., the Dublin Core or schema.org.  
