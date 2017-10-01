@@ -1,4 +1,4 @@
-[>main< ask:
+[>OD1< ask:
   {text: Does the data you wish to share already exist?}
   {answers:
     {no: [reject: See: making data open by design.]}
@@ -10,7 +10,7 @@
     {yes:
       [set: Media=digital]
       [>format< ask:
-        {text: Are the data in proprietary (closed) format?}
+        {text: Are the data in a proprietary (closed) format?}
         {answers:
           {yes:
             [ask:
