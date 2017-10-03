@@ -1,11 +1,11 @@
-[>main< ask:
+[>OS1< ask:
   <* Why does the existance of the software matters? This interview is also useful
    * for structuring an organizations towards a future softare, in a way that will allow it to be open. *>
   {text: Does the software you wish to share already exist? }
   {answers:
       {no:[end]}
   }]
-[>rights< ask:
+[>OS8< ask:
   {text: Do you have the rights to make the software open?}
   {answers:
     {no:
@@ -44,7 +44,7 @@
     {yes: [set: DataLevel=L1][todo: Might also be L2 - elaborate here.][end]}
     {no:
       [ask:
-        {text: Does your code use code from others that is allowed to be redistributed under a permissive license?}
+        {text: Does your code use code from others that is not allowed to be redistributed under a permissive license?}
         {answers:
           <-- {no: [set: DataLevel=L1]}
           {yes:

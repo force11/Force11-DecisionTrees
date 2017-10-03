@@ -1,7 +1,7 @@
 <policy-model>
   <title>Force11-Repository Compliance</title>
-  <date>2017-04-23</date>
-  <version>0.2</version>
+  <date>2017-10-2</date>
+  <version>0.5</version>
   <keywords>repository, FAIR, Force11, software</keywords>
   <authors>
     <person orcid="0000-0002-8406-3871">
@@ -11,6 +11,7 @@
     </person>
     <group url="https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees">
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
+      <contact>scwgwp3@force11.org</contact>
     </group>
   </authors>
   <model answers-order="yes-first">
@@ -21,7 +22,7 @@
       <reference doi="10.1038/sdata.2016.18">
       Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018.
       </reference>
-        <reference>
+        <reference url="https://www.force11.org/group/joint-declaration-data-citation-principles-final">
         Data Citation Synthesis Group: Joint Declaration of Data Citation Principles. Martone M. (ed.) San Diego CA: FORCE11; 2014 https://www.force11.org/group/joint-declaration-data-citation-principles-final
         </reference>
         <reference url="https://www.datasealofapproval.org/en/information/requirements/">
