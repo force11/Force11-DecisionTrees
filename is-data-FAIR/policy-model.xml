@@ -4,14 +4,31 @@
   <date>2017-04-23</date>
   <keywords>FAIR, open, Force11</keywords>
   <authors>
+    <person orcid="0000-0002-8406-3871">
+      <name>Maryann Martone</name>
+      <affiliation>University of California, San Diego</affiliation>
+      <email>mmartone@ucsd.edu</email>
+    </person>
     <group>
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
     </group>
   </authors>
   <model answers-order="yes-first">
-    <space root="DataTags">definitions_FAIR_MM.ts</space>
-    <graph>questionnaire_FAIR_MM.dg</graph>
+    <space root="DataTags">definitions.ts</space>
+    <graph>questionnaire.dg</graph>
   </model>
   <references>
+    <reference url="https://docs.google.com/document/d/158C1KQeke7IN1GK3CkB2RGr0gfYUFnIl_nLU_Y6ad9I/edit#">
+      FAIR data help page
+    </reference>
+    <reference doi="10.1038/sdata.2016.18">
+      Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018.
+    </reference>
+    <reference url="https://www.openaire.eu/opendatapilot-repository">
+      OpenAire (2016) Information about selecting a data repository.
+    </reference>
+    <reference doi="10.6084/m9.figshare.1314859">
+      Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1
+    </reference>
   </references>
 </policy-model>

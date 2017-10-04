@@ -8,15 +8,15 @@
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
     {yes:
-      [ask:
+      [>DRC11< ask:
         {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
         {answers:
           {yes:
-            [ask:
+            [>DRC15<ask:
               {text: Are the data covered by a commons-compliant license? }
               {answers:
                 {yes:
-                  [ask:
+                  [>DRC19<ask:
                     {text: Are the data provided in an open format? }
                     {answers:
                       {yes: [set: Assertions += Open]}
@@ -32,10 +32,10 @@
   }
 ][end]
 [>FAIR< ask:
-  {text: Does your repository assign persistent identifiers (PID)? }
+  {text: Does your repository assign globally unique and persistent identifiers (PID)? }
   {answers:
     {yes:
-      [ask:
+      [>DRC38<ask:
         {text: Does the PID resolve to a landing page that describes the data? }
         {answers:
           {yes:
@@ -67,17 +67,24 @@
 ][end]
 
 [>citable< ask:
-  {text: Does the repository provide the required metadata for supporting data citation?}
-  {answers:
-    {yes:
-      [ask:
-        {text: Does the repository provide a machine-readable landing page?}
-        {answers:
-          {yes: [set: Assertions += Citable]}
+  {text: Does the repository allow you to associate your ORCID ID with a dataset?}
+    {answers:
+      {yes:
+        [ask:
+          {text: Does the repository provide the required metadata for supporting data citation?}
+            {answers:
+              {yes:
+                [ask:
+                  {text: Does the repository provide a machine-readable landing page?}
+                  {answers:
+                    {yes: [set: Assertions += Citable]}
+                  }
+                ]
+              }
+            }
+          ]
         }
-      ]
-    }
-  }
+      }
 ][end]
 
 [>trustworthy< ask:
@@ -95,9 +102,8 @@
               {text: Is the governance of the repository transparent?}
               {answers:
                 {yes:
-                  [ask:
+                  [>codeRun< ask:
                     {text: Is the code that runs the data infrastructure covered under an open source license?}
-                    {terms: }
                     {answers:
                       {yes: [set: Assertions += Trustworthy]}
                     }

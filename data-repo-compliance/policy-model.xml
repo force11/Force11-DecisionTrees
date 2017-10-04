@@ -1,5 +1,5 @@
 <policy-model>
-  <title>Force11-Repository Complicance</title>
+  <title>Force11-Repository Compliance</title>
   <date>2017-04-23</date>
   <version>0.2</version>
   <keywords>repository, FAIR, Force11, software</keywords>
@@ -9,7 +9,7 @@
       <affiliation>University of California, San Diego</affiliation>
       <email>mmartone@ucsd.edu</email>
     </person>
-    <group>
+    <group url="https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees">
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
     </group>
   </authors>
@@ -18,17 +18,20 @@
     <graph>questionnaire.dg</graph>
   </model>
   <references>
-      <reference>
-      Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018. doi: 10.1038/sdata.2016.18.
+      <reference doi="10.1038/sdata.2016.18">
+      Wilkinson et al., FAIR Data Principles Sci Data. 2016 Mar 15;3:160018.
       </reference>
         <reference>
         Data Citation Synthesis Group: Joint Declaration of Data Citation Principles. Martone M. (ed.) San Diego CA: FORCE11; 2014 https://www.force11.org/group/joint-declaration-data-citation-principles-final
         </reference>
-        <reference>
-          Data Gold Seal of Approval https://www.datasealofapproval.org/en/information/requirements/
+        <reference url="https://www.datasealofapproval.org/en/information/requirements/">
+          Data Gold Seal of Approval
         </reference>
-      <reference>
-          Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1, retrieved [date], http://dx.doi.org/10.6084/m9.figshare.1314859
+      <reference doi="10.6084/m9.figshare.1314859">
+          Bilder G, Lin J, Neylon C (2015) Principles for Open Scholarly Infrastructure-v1
+          </reference>
+          <reference url="https://www.dtls.nl/fair-data/fair-principles-explained/">
+            Dutch Techcenter for Life Sciences:  The FAIR Data Principles explained
           </reference>
   </references>
 </policy-model>

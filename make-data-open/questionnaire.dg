@@ -41,29 +41,31 @@
 <-- OK, Data is digital, now let's see if it can be opened.
 [>rights< ask:
   {text: Do you have the rights to make the data open?}
-  {terms:
-    {rights to make open: NEED TO ELABORATE ON THIS} <-- TODO: Elaborate.
-  }
   {answers:
       {yes:
         [>sensitivity< ask:
-          {text: Is it sensitive data that cannot be openly shared?}
+          {text: Is it sensitive data that cannot be fully openly shared?}
           {answers:
-            {no: [set: DataLevel=L1; IsSensitive=no][end]}
+            {no:
+              [set:IsSensitive=no]
+              [>OD51<ask:
+                {text: Did you choose a license with minimal to no restrictions for data reuse?}
+                  {answers:
+                    {yes: [set: DataLevel=L1][end] }}]}
             {yes:
               [set: IsSensitive=yes]
               [ask:
                 {text: Were permissions obtained to share the data within regulatory requirements?}
                 {answers:
                   {yes: [set: DataLevel=L2][end] }
+                    }
+                  ]
                 }
-              ]
-            }
+              }
+            ]
           }
-        ]
-      }
-  }
-]
+        }
+      ]
 [ask:
   {text: Has a description of the data been published or the data refereed? }
   {answers:
