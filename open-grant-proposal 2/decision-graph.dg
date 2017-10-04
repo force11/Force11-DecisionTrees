@@ -1,0 +1,37 @@
+[>ogp1-1< ask:
+  {text: Has the grant proposal been written?}
+  {answers:
+    {yes:
+      [>ogp1-2< ask:
+        {text: Do you have permission to publish it?}
+        {answers:
+          {yes:
+            [set: ComplianceLevel=L1]
+            [todo: Compliance Level might also be L2.]
+            [todo: GoTo publishing Grant Proposals.]
+          }
+          {no:
+            [set: ComplianceLevel=L3]
+            [todo: Compliance Level might also be L4.]
+            [todo: Depending on the specific query and its results, could go back to OGP1-2 one or more times. If 'yes' cannot be reached then Outcome will be L3 or L4]
+          }
+        }
+      ]
+    }
+    {no:
+      [>ogp1-3< ask:
+        {text: Is there a known, suitable method for writing it openly? This includes permission to publish}
+        {answers:
+          {yes:
+            [todo: Got to Publishing Proposals]
+            [set: ComplianceLevel = L1]
+          }
+          {no:
+            [todo: Depending on the specific query and its results, could go back to OGP1-3 one or more times. If 'yes' cannot be reached then Outcome will be L3 or L4]
+            [set: ComplianceLevel = L3]
+          }
+        }
+      ]
+    }
+  }
+]
