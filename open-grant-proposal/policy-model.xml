@@ -2,13 +2,11 @@
   <title>Open Grant Proposal</title>
   <subtitle></subtitle>
   <version>0.1</version>
-  <date>2017-07-11</date>
-  <!--
-  <keywords></keywords>
-  -->
+  <version>0.2</version>
+  <date>2017-10-05</date>
+  <keywords>grant proposal; open science</keywords>
   <authors>
-
-    <!--
+    <person>
     <person orcid="0000-0003-1693-1240">
       <name>Fiona Murphy</name>
       <affiliation>University of Reading</affiliation>
@@ -24,7 +22,6 @@
       <name>Scholarly Commons WG3</name>
       <contact>scwg3@force11.org</contact>
     </group>
-      -->
   </authors>
   <model answers-order="yes-first">
     <!-- other options: yes-last, verbatim. Default: yes-first -->
@@ -32,13 +29,12 @@
     <space root="OpenGrant">policy-space.ps</space>
     <graph>decision-graph.dg</graph>
   </model>
-  <!--
   <references>
-    <reference doi="1234567890">
-      ref1 text
+    <reference url="https://sarahsupp.org/2016/03/10/open-grant-proposals-and-sharing-in-science-part-ii/">
+      Blogpost by Sarah Supp, 10 March 2016
     </reference>
-    <reference url="http://somewhere.org/important/doc">
-      ref2 text
+    <reference url="https://jabberwocky.weecology.org/2012/08/08/on-making-my-grant-proposals-open-access/">
+      "On making my grant proposals open access" Jabberwocky Ecology website by Ethan White and Morgan Ernest
     </reference>
   </references>
   -->
