@@ -9,7 +9,7 @@
   {answers:
     {yes:
       [>DRC11< ask:
-        {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
+        {text: Are you free to download the data or access it computationally and reuse it with no or minimal restrictions? }
         {answers:
           {yes:
             [>DRC15<ask:
