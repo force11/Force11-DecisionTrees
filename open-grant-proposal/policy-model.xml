@@ -1,18 +1,15 @@
 <policy-model>
   <title>Open Grant Proposal</title>
   <subtitle></subtitle>
-  <version>0.1</version>
   <version>0.2</version>
   <date>2017-10-05</date>
-  <keywords>grant proposal; open science</keywords>
+  <keywords>grant proposal, open science</keywords>
   <authors>
-    <person>
     <person orcid="0000-0003-1693-1240">
       <name>Fiona Murphy</name>
       <affiliation>University of Reading</affiliation>
       <email>fiona.murphy@reading.ac.uk</email>
     </person>
-  </person>
     <person orcid="0000-0003-1693-1240">
       <name>Maryann Martone</name>
       <affiliation>UCSD</affiliation>
