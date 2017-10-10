@@ -7,30 +7,48 @@
 [>open< ask:
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
-    {yes:
-      [>DRC11< ask:
-        {text: Are you free to download the data and reuse it with no or  minimal restrictions? }
-        {answers:
-          {yes:
-            [>DRC15<ask:
-              {text: Are the data covered by a commons-compliant license? }
-              {answers:
-                {yes:
-                  [>DRC19<ask:
-                    {text: Are the data provided in an open format? }
-                    {answers:
-                      {yes: [set: Assertions += Open]}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
+    {yes: [set: OpenProps += humanAccesible] }
   }
-][end]
+]
+<*
+[>DRC11< ask:
+  {text: Are you free to download the data and reuse it with no or minimal restrictions? }
+  {answers:
+    {yes: [set: OpenProps += machineAccesible] }
+  }
+]
+[>DRC19<ask:
+  {text: Are the data provided in an open format? }
+  {answers:
+    {yes: [set: OpenProps += openFormat]}
+  }
+]
+*>
+[>DRC11_19< ask:
+  {text:Are you free to download the data and reuse it with no or minimal restrictions? }
+  {answers:
+    {yes, using open format: [set: OpenProps+=machineAccesible, openFormat]}
+    {yes, using proprietary format: [set: OpenProps+=machineAccesible]}
+    {no:}
+  }
+]
+[>DRC15<ask:
+{text: Are the data covered by a commons-compliant license? }
+  {answers:
+    {yes: [set: OpenProps += openLicense] }
+  }
+]
+[when:
+  {OpenProps+=openFormat, openLicense,
+              machineAccesible, humanAccesible: [set: Open=FullyOpen] }
+  {OpenProps+=openFormat:       [set: Open=SomewhatOpen] }
+  {OpenProps+=openLicense:      [set: Open=SomewhatOpen] }
+  {OpenProps+=humanAccesible:   [set: Open=SomewhatOpen] }
+  {OpenProps+=machineAccesible: [set: Open=SomewhatOpen] }
+  {else:[set: Open=Closed]}
+]
+[end]
+
 [>FAIR< ask:
   {text: Does your repository assign globally unique and persistent identifiers (PID)? }
   {answers:
@@ -50,7 +68,7 @@
                         [ask:
                           {text:  Does the repository adhere to machine-readable metadata standards within use in the community? }
                           {answers:
-                            {yes: [set: Assertions += FAIR]}
+                            {yes: [set: FAIR = FullyFAIR]}
                           }
                         ]
                       }
@@ -77,7 +95,7 @@
                 [ask:
                   {text: Does the repository provide a machine-readable landing page?}
                   {answers:
-                    {yes: [set: Assertions += Citable]}
+                    {yes: [set: Citable = FullySupported]}
                   }
                 ]
               }
@@ -105,7 +123,7 @@
                   [>codeRun< ask:
                     {text: Is the code that runs the data infrastructure covered under an open source license?}
                     {answers:
-                      {yes: [set: Assertions += Trustworthy]}
+                      {yes: [set: Trustworthy = NoConcerns]}
                     }
                   ]
                 }

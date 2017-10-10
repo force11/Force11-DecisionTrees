@@ -14,7 +14,7 @@
     </group>
   </authors>
   <model answers-order="yes-first">
-    <space root="DataTags">definitions.ts</space>
+    <space root="DataRepoCompliance">definitions.ts</space>
     <graph>questionnaire.dg</graph>
   </model>
   <references>
