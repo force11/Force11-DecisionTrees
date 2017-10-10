@@ -9,7 +9,7 @@ Assertions: consists of InRepository, IsSensitive.
 
 Media: one of analog, digital.
 
-IsSensitive: one of yes [Dataset contains data that can cause harm to the data subjects if distributed freely.],
-                    no [Dataset will not cause harm to the data subjects, even when distributed freely.].
+IsSensitive: one of no [Dataset will not cause harm to the data subjects, even when distributed freely.],
+                    yes [Dataset contains data that can cause harm to the data subjects if distributed freely.].
 
 InRepository: TODO.
