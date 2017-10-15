@@ -7,6 +7,6 @@ Trustworthy: one of SignificantConcerns, MinorConcerns, NoConcerns.
 
 Properties: consists of OpenProps, FAIRProps.
 
-OpenProps: some of humanAccesible, machineAccesible, openFormat, openLicense. 
+OpenProps: some of humanAccessible, machineAccessible, openFormat, openLicense.
 
-FAIRProps: TODO.
+FAIRProps: some of humanAccessible, machineAccessible, PID, PersistentMetadata, CommunityStandard, RichMetadata, License.

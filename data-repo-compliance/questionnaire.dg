@@ -7,53 +7,14 @@
 [>open< ask:
   {text: Does the repository provide access to the data with minimal or no restrictions? }
   {answers:
-<<<<<<< HEAD
-    {yes:
-      [>DRC11< ask:
-        {text: Are you free to download the data or access it computationally and reuse it with no or minimal restrictions? }
-        {answers:
-          {yes:
-            [>DRC15<ask:
-              {text: Are the data covered by a commons-compliant license? }
-              {answers:
-                {yes:
-                  [>DRC19<ask:
-                    {text: Are the data provided in an open format? }
-                    {answers:
-                      {yes: [set: Assertions += Open]}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-=======
-    {yes: [set: OpenProps += humanAccesible] }
->>>>>>> 4838163fa48f628fa45cc33e648c9a770118f504
+    {yes: [set: OpenProps += humanAccessible] }
   }
 ]
-<*
-[>DRC11< ask:
-  {text: Are you free to download the data and reuse it with no or minimal restrictions? }
-  {answers:
-    {yes: [set: OpenProps += machineAccesible] }
-  }
-]
-[>DRC19<ask:
-  {text: Are the data provided in an open format? }
-  {answers:
-    {yes: [set: OpenProps += openFormat]}
-  }
-]
-*>
 [>DRC11_19< ask:
   {text:Are you free to download the data and reuse it with no or minimal restrictions? }
   {answers:
-    {yes, using open format: [set: OpenProps+=machineAccesible, openFormat]}
-    {yes, using proprietary format: [set: OpenProps+=machineAccesible]}
+    {yes, using open format: [set: OpenProps+=machineAccessible, openFormat]}
+    {yes, using proprietary format: [set: OpenProps+=machineAccessible]}
     {no:}
   }
 ]
@@ -65,11 +26,11 @@
 ]
 [when:
   {OpenProps+=openFormat, openLicense,
-              machineAccesible, humanAccesible: [set: Open=FullyOpen] }
+              machineAccessible, humanAccessible: [set: Open=FullyOpen] }
   {OpenProps+=openFormat:       [set: Open=SomewhatOpen] }
   {OpenProps+=openLicense:      [set: Open=SomewhatOpen] }
-  {OpenProps+=humanAccesible:   [set: Open=SomewhatOpen] }
-  {OpenProps+=machineAccesible: [set: Open=SomewhatOpen] }
+  {OpenProps+=humanAccessible:   [set: Open=SomewhatOpen] }
+  {OpenProps+=machineAccessible: [set: Open=SomewhatOpen] }
   {else:[set: Open=Closed]}
 ]
 [end]
@@ -77,37 +38,61 @@
 [>FAIR< ask:
   {text: Does your repository assign globally unique and persistent identifiers (PID)? }
   {answers:
-    {yes:
-      [>DRC38<ask:
-        {text: Does the PID resolve to a landing page that describes the data? }
-        {answers:
-          {yes:
-            [ask:
-              {text: Does the repository ensure the persistence of the data and/or landing pages? }
-              {answers:
-                {yes:
-                  [ask:
-                    {text: Does the repository provide web-based search and access to the data and metadata? }
-                    {answers:
-                      {yes:
-                        [ask:
-                          {text:  Does the repository adhere to machine-readable metadata standards within use in the community? }
-                          {answers:
-                            {yes: [set: FAIR = FullyFAIR]}
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
+    {yes: [set: FAIRProps += PID] }
   }
-][end]
+]
+
+[>DRC38< ask:
+  {text:Does the PID resolve to a landing page that describes the data? }
+  {answers:
+    {yes: [set: FAIRProps+=humanAccessible]}
+  }
+]
+[ask:
+  {text:Does the repository support the addition of rich metadata to promote search and reuse of data? }
+  {answers:
+    {yes: [set: FAIRProps+=RichMetadata]}
+  }
+]
+[ask:
+  {text:Does the repository have a policy that ensures the metadata (landing page) will persist even if the data are no longer available? }
+  {answers:
+    {yes: [set: FAIRProps+=PersistentMetadata]}
+  }
+]
+
+[ask:
+  {text: Does the repository provide web-based search and access to the data and metadata?}
+  {answers:
+    {yes: [set: FAIRProps += machineAccessible] }
+  }
+]
+[ask:
+{text: Does the repository provide a clear license for reuse of the data?}
+  {answers:
+    {yes: [set: FAIRProps += License] }
+  }
+]
+[ask:
+{text: Does the repository enforce or allow the use of community standards for data format or metadata?}
+  {answers:
+    {yes: [set: FAIRProps += CommunityStandard] }
+  }
+]
+
+[when:
+  {FAIRProps+=PID, License, RichMetadata, PersistentMetadata,
+               CommunityStandard: [set: FAIR=FullyFAIR] }
+  {FAIRProps+=PID:                [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=License:            [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=RichMetadata:       [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=machineAccessible:  [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=humanAccessible:    [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=CommunityStandard:  [set: FAIR=SomewhatFAIR] }
+  {FAIRProps+=PersistentMetadata: [set: FAIR=SomewhatFAIR] }
+  {else:[set: FAIR=UnFAIR]}
+]
+[end]
 
 [>citable< ask:
   {text: Does the repository allow you to associate your ORCID ID with a dataset?}
