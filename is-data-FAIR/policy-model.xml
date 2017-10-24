@@ -16,7 +16,7 @@
   </authors>
   <model answers-order="yes-first">
     <space root="DataTags">definitions.ts</space>
-    <graph>questionnaire.dg</graph>
+    <graph>questionnaire_FAIR_MM.dg</graph>
   </model>
   <references>
     <reference url="https://docs.google.com/document/d/158C1KQeke7IN1GK3CkB2RGr0gfYUFnIl_nLU_Y6ad9I/edit#">
