@@ -1,0 +1,1 @@
+Do you have permission to publish it?

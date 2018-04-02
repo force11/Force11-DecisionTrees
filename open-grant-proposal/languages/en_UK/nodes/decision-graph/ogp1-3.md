@@ -1,0 +1,1 @@
+Is there a known, suitable method for writing it openly? This includes permission to publish
