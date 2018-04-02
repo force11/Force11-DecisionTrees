@@ -2,7 +2,7 @@
 <-- TODO: describe OpenGrant
 
 # OpenGrant/ComplianceLevel
-<-- TODO: describe OpenGrant/ComplianceLevel
+How compliant is the grant proposal, with respect to the FAIR principles.
 
 # OpenGrant/ComplianceLevel/L1
 Fully principles compliant:  Open in the sense of the Open definition:  Free to use and reuse.
@@ -15,4 +15,3 @@ Somewhat principles compliant:  Digital footprint, but significant barriers for 
 
 # OpenGrant/ComplianceLevel/L4
 Not principles compliant:  No digital footprint;  e.g., dark data
-

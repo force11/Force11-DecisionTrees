@@ -27,8 +27,8 @@
 [when:
   {OpenProps+=openFormat, openLicense,
               machineAccessible, humanAccessible: [set: Open=FullyOpen] }
-  {OpenProps+=openFormat:       [set: Open=SomewhatOpen] }
-  {OpenProps+=openLicense:      [set: Open=SomewhatOpen] }
+  {OpenProps+=openFormat:        [set: Open=SomewhatOpen] }
+  {OpenProps+=openLicense:       [set: Open=SomewhatOpen] }
   {OpenProps+=humanAccessible:   [set: Open=SomewhatOpen] }
   {OpenProps+=machineAccessible: [set: Open=SomewhatOpen] }
   {else:[set: Open=Closed]}
