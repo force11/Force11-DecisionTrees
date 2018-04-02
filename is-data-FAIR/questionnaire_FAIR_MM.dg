@@ -10,7 +10,7 @@
             [set: DataLevel=L1]
             [todo:  Data may be L2 - complete this]}
           {no:
-            [set: DataLevel=L3]
+            [set: DataLevel=L4]
           }
         }
       ]
@@ -24,9 +24,6 @@
           {yes:
             [>FD25<ask:
               {text: Does the repository implement the FAIR principles?}
-              {terms:
-                {commons compliant: A repository that makes data available according to the principles of the commons.  See decision tree XXXXX  }
-              }
               {answers:
 					       {yes:
 			             [set: DataLevel=L1]
@@ -36,9 +33,9 @@
                    [set: DataLevel=L3]
                    [todo: Could be level 4.  But in truth the level will depend on what services the repository offers]
                  }
-               }
-             ]
-           }
+              }
+              ]
+             }
            {no:
              [ask:
                {text: Is there an institional or general community repository that will host your data?}
@@ -71,7 +68,7 @@
             ]
           }
         }
+        ]
+        }
+      }
       ]
-    }
-  }
-]

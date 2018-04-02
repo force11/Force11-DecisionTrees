@@ -1,7 +1,7 @@
 <policy-model>
   <title>Force11-Can I make my data open?</title>
-  <version doi="xyz">0.4</version>
-  <date>2017-04-23</date>
+  <version doi="xyz">0.5</version>
+  <date>2017-10-2</date>
   <keywords>repository, open, Force11</keywords><!-- suggested keywords list here. -->
   <!-- YYYY-MM-DD format -->
   <authors>
@@ -29,11 +29,11 @@
   </model>
   <references>
     <!-- Need to finalize the fields for references -->
-    <reference doi="1234567890">
-      ref1 text
+    <reference url="http://opendefinition.org/od/2.1/en/">
+      Open Definition 2.1
     </reference>
-    <reference url="http://somewhere.org/important/doc">
-      ref2 text
+    <reference url="http://www.budapestopenaccessinitiative.org/boai-10-recommendations">
+      Budapest Open Access Definition
     </reference>
   </references>
 </policy-model>

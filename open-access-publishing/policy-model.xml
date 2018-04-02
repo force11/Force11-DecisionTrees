@@ -1,0 +1,18 @@
+<policy-model>
+  <title>Open Access Publishing</title>
+  <subtitle></subtitle>
+  <version>0.1</version>
+  <date>2017-08-01</date>
+  <keywords>
+    Open Access, Journal
+  </keywords>
+  <authors>
+    <person>
+      <name>Martyn Rittman</name>
+    </person>
+  </authors>
+  <model answers-order="yes-first">
+    <space root="DataTags">oaJournalChooser.ts</space>
+    <graph>oaJournalChooser.dg</graph>
+  </model>
+</policy-model>

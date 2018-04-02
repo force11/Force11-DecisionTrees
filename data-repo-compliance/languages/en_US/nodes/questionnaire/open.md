@@ -1,3 +1,3 @@
-Are the data provided in an open format?
+Does the repository provide access to the data with minimal or no restrictions?
 
- Data should be stored in a non-proprietary format, i.e., a format that is published and free for re-use by anyone, e.g., CSV.  In contrast, a proprietary format is not published and can only be read by certain commercial software.  As the goal of publishing data in a repository is for openness and re-use, data that is reliant on propriety software is by definition non-commons compliant.  Adapted from [Wikipedia](https://en.wikipedia.org/wiki/Proprietary_format)
+ Access to the data should be unfettered, without even requiring an account, but requiring registraiton before using the data would be considered a minimal restriction.  Similarly, minimal restrictions may also include requiring special access for accessing large amounts of data, e.g., an API key.

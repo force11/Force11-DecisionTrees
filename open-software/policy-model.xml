@@ -4,8 +4,18 @@
   <date>2017-04-23</date>
   <keywords>repository, open, Force11, software</keywords>
   <authors>
+    <person orcid="0000-0001-5934-7525">
+      <name>Dan Katz</name>
+      <affiliation>University of Illinois Urbana-Champaign</affiliation>
+    </person>
+    <person orcid="0000-0002-8406-3871">
+      <name>Maryann Martone</name>
+      <affiliation>University of California, San Diego</affiliation>
+      <email>mmartone@ucsd.edu</email>
+    </person>
     <group>
       <name>Force 11: Scholarly Commons Subworking Group 3</name>
+      <contact>scwgwp3@force11.org</contact>
     </group>
   </authors>
   <model answers-order="yes-first">
@@ -16,11 +26,8 @@
   </model>
   <references>
     <!-- Need to finalize the fields for references -->
-    <reference doi="1234567890">
-      ref1 text
-    </reference>
-    <reference url="http://somewhere.org/important/doc">
-      ref2 text
+    <reference url="https://opensource.org/osd-annotated">
+      Open Source Initiative:  Open source definition
     </reference>
   </references>
 </policy-model>
