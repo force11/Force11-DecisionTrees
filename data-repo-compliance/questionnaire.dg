@@ -26,17 +26,16 @@
       {yes: [set: OpenProps += openLicense] }
     }
   ]
+  [when:
+    {OpenProps+=openFormat, openLicense,
+                machineAccessible, humanAccessible: [set: Open=FullyOpen] }
+    {OpenProps+=openFormat:        [set: Open=SomewhatOpen] }
+    {OpenProps+=openLicense:       [set: Open=SomewhatOpen] }
+    {OpenProps+=humanAccessible:   [set: Open=SomewhatOpen] }
+    {OpenProps+=machineAccessible: [set: Open=SomewhatOpen] }
+    {else:[set: Open=Closed]}
+  ]
 ]
-[when:
-  {OpenProps+=openFormat, openLicense,
-              machineAccessible, humanAccessible: [set: Open=FullyOpen] }
-  {OpenProps+=openFormat:        [set: Open=SomewhatOpen] }
-  {OpenProps+=openLicense:       [set: Open=SomewhatOpen] }
-  {OpenProps+=humanAccessible:   [set: Open=SomewhatOpen] }
-  {OpenProps+=machineAccessible: [set: Open=SomewhatOpen] }
-  {else:[set: Open=Closed]}
-]
-[end]
 [>sFAIR< section:
   {title: Testing whether a repository implements FAIR}
   [>FAIR< ask:
