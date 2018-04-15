@@ -1,4 +1,4 @@
-LibStorage: consists of RevisionState, HIPAA, Handling, Storages,
+LibStorage: consists of RevisionState, HIPAA, Handling, Storages, HandlingApproved,
                         Traits.
 
 RevisionState[How close the data are to their final form]: one of initial, finalizing.
@@ -22,6 +22,8 @@ NoCost: one of notRequired, required.
 HIPAA: one of unrelated  [Dataset contains no HIPAA-related data],
               anonymized [Dataset contains HIPAA-related data, but they are anonymized],
               full       [Dataset contains non-anonymized HIPAA-related data].
+
+HandlingApproved: one of Yes, No.
 
 Storages [List of the storage facillities that can store the dataset in question]: some of
   actWrkScr       [Active/working/scratch storage],

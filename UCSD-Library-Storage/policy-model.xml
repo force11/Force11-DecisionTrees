@@ -1,8 +1,8 @@
 <policy-model>
   <title>UCSD Library Storage</title>
   <subtitle>Initial version</subtitle>
-  <version>0.1</version>
-  <date>2018-04-11</date>
+  <version>0.2</version>
+  <date>2018-04-14</date>
   <keywords>
     storage, library, selection
   </keywords>
@@ -10,6 +10,9 @@
     <person>
       <name>Ho Jung Yoo</name>
     </person>
+    <group url="https://libraries.ucsd.edu/about/who-we-are/index.html">
+      <name>UC San Diego Libraries</name>
+    </group>
     <person orcid="0000-0002-0153-8465">
       <name>Michael Bar-Sinai</name>
     </person>

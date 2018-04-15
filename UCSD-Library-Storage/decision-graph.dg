@@ -1,5 +1,5 @@
 [>filter< ask:
-  {text: Are you a UCSD researcher or data steward, looking for an institutional storage solution for your data?}
+  {text: Are you a UC San Diego researcher, educator, or student looking for an institutional storage solution for your research data?}
   {answers:
     {no: [reject: Sorry, this decision tree only covers solutions for storing data for UCSD personnel.]}
   }
@@ -37,7 +37,7 @@
   {answers:
     {yes: [set: Discoverability=indexed]}
     {no: [>discoverability-no< ask:
-      {text: Can the data be available via a public link?}
+      {text: Can the data be made available via a public link?}
       {answers:
         {yes: [set: Discoverability=public; Traits+=notIndexed]}
         {no:  [set: Discoverability=hidden; Traits+=notIndexed]}
@@ -53,16 +53,22 @@
   }
 ]
 [>dataCollectionIntention< ask: <-- q6
-  {text: Did you create the data or were the data created to support research at UC San Diego? }
+  {text: Did you create the data and/or were the data created to support research at UC San Diego? }
   {answers:
-    {no: [>dataCollectionIntention-a< ask:
+    {no: [>dataCollectionIntention-a< ask: <-- q6a
       {text: Do you have approval of the creator/owner to share or store a copy of the data on a UCSD server?}
       {answers:
-        {no:  [>rjNoPermission< reject: Sorry, we cannot store the data without explicit permission from the data owner.]}
+        {no: [set: HandlingApproved=No] }
       }
     ]}
   }
 ]
+
+[when:
+  {HandlingApproved=No: }
+  {else: [set: HandlingApproved=Yes]}
+]
+
 [>hipaaCompliance< ask: <-- q7
   {text: Do the data contain HIPAA-regulated data or personally identifiable information? }
   {terms:
@@ -88,34 +94,55 @@
 [>hippa-break< consider:
   {slot: HIPAA}
   {options:
-    { full : [reject: We currently do not offer HIPAA-compliant data storage.] }
+    { full:
+      [>hipaa-statement< ask:
+        <* Trick - this is really a disclaimer, implemented as a single answer question. *>
+        {text: The Library does not offer HIPAA-compliant data storage. Please
+               contact research-it@ucsd.edu for information about other campus
+               solutions. We may be able to provide metadata-only storage.
+             }
+        {answers:
+          {ok:}
+        }
+      ]
+    }
   }
 ]
 
 <* Now that we're sure we can handle the data, where do we route it to? *>
 
-[consider: <-- route by revision state
-  {slot: RevisionState}
-  {options:
-    { initial:
-      [when:
-        { AccessLevel=nonPublic; LongTermPreservation=notRequired;Traits+=notIndexed:
-            [set: Storages+=actWrkScr]}] }
-    { finalizing:
-      [when:
-        {AccessLevel=public; Discoverability=indexed: [set: Storages+=ucsdLibDCol_idx] }]
-      [when:
-        {Traits+=directAccess,notIndexed: [set: Storages+=ucsdLibDCol]}]
-      [when:
-        {Traits+=nonPublicAL,notIndexed; AccessFrequency=low; LongTermPreservation=required:
-           [set:Storages+=chronopolis]}]
-    }
+[when: <-- route by legal permissions
+  { HandlingApproved=Yes; Traits += hipaaCleared:
+    [>rbr< consider: <-- route by revision state
+      {slot: RevisionState}
+      {options:
+        { initial:
+          [when:
+            { AccessLevel=nonPublic; LongTermPreservation=notRequired;
+              Traits+=notIndexed:
+                [set: Storages+=actWrkScr]}] }
+        { finalizing:
+          [when:
+            {AccessLevel=public; Discoverability=indexed:
+               [set: Storages+=ucsdLibDCol_idx] }]
+          [when:
+            {Traits+=directAccess,notIndexed:
+              [set: Storages+=ucsdLibDCol]}]
+          [when:
+            {Traits+=nonPublicAL,notIndexed; AccessFrequency=low; LongTermPreservation=required:
+               [set:Storages+=chronopolis]}]
+        }
+      }
+    ]
+    [when:
+      {Traits+=directAccess,notIndexed; LongTermPreservation=notRequired:
+        [set: Storages+=rdlShare]}
+    ]
   }
-]
-[when:
-  { AccessLevel=nonPublic; Discoverability=indexed: [set: Storages+=ucsdLibDCol_mdo] }
-]
-[when:
-  {Traits+=directAccess,notIndexed; LongTermPreservation=required:
-    [set: Storages+=rdlShare]}
+  {else: <-- Datasets where we don't have approval, or that are subject to HIPAA
+    [when:
+      { AccessLevel=nonPublic; Discoverability=indexed:
+        [set: Storages+=ucsdLibDCol_mdo] }
+    ]
+  }
 ]
