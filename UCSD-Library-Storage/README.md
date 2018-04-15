@@ -1,6 +1,7 @@
 # UCSD Library Storage Decision Tree
-** THIS IS AN INITIAL, NON-OFFICIAL VERSION. **
-** NOT FOR USE (YET) **
+**THIS IS AN INITIAL, NON-OFFICIAL VERSION.**
+
+**NOT FOR USE (YET)**
 
 This decision tree was created by Ho Jung Yoo and transcribed into PolicyModels by Michael Bar-Sinai.
 
