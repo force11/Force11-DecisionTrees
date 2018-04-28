@@ -1,8 +1,8 @@
 <policy-model>
   <title>UCSD Library Storage</title>
   <subtitle>Initial version</subtitle>
-  <version>0.2</version>
-  <date>2018-04-14</date>
+  <version>0.3</version>
+  <date>2018-04-28</date>
   <keywords>
     storage, library, selection
   </keywords>
@@ -16,16 +16,16 @@
     <person orcid="0000-0002-0153-8465">
       <name>Michael Bar-Sinai</name>
     </person>
+    <group url="https://www.force11.org/group/scholarly-commons-working-group/wp3decision-trees">
+      <name>Scholarly Commons WP3:Decision Trees</name>
+      <!-- <contact>hello@working-group.org</contact> -->
+    </group>
     <!--
     <person orcid="123-2345-67890" url="">
       <name>Jane Doe</name>
       <affiliation>Institute</affiliation>
       <email>jane.d@institute.edu</email>
     </person>
-    <group url="">
-      <name>Working group</name>
-      <contact>hello@working-group.org</contact>
-    </group>
       -->
   </authors>
   <model answers-order="yes-first">
@@ -47,7 +47,7 @@
       Original GoogleDoc by Ho Jung Yoo
     </reference>
     <reference url="https://finder.research.cornell.edu/storage">
-      Cornell's sotrage selector
+      Cornell's storage selector
     </reference>
   </references>
 </policy-model>

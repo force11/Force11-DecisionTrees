@@ -4,16 +4,17 @@ LibStorage: consists of RevisionState, HIPAA, Handling, Storages, HandlingApprov
 RevisionState[How close the data are to their final form]: one of initial, finalizing.
 
 Handling [How the data are handled by the repository]: consists of
-  AccessLevel, AccessFrequency, Discoverability, LongTermPreservation, NoCost.
+  AccessLevel, AccessFrequency, LongTermPreservation, NoCost.
 
-AccessLevel: one of public, byLink, nonPublic.
+AccessLevel: consists of DataAccess, MetadataAccess.
+
+DataAccess: one of public, private.
+
+MetadataAccess: one of indexed [Datast's metadata appears in search results],
+                        public [Dataset's metadata are publicly available via direct link, but do not appear in search results],
+                       private [Dataset's metadata are not publicly available].
 
 AccessFrequency: one of low, high.
-
-Discoverability [How can the data be discovered]: one of
-    indexed [Data appear in indices and search results],
-    public [Data are available at a non-indexed address],
-    hidden.
 
 LongTermPreservation: one of notRequired, required.
 
@@ -34,4 +35,4 @@ Storages [List of the storage facillities that can store the dataset in question
   chronopolis     [Chronopolis].
 
 Traits [Internal assertions that make the decision tree easier to write]: some of
-  hipaaCleared, notIndexed, directAccess, nonPublicAL.
+  hipaaCleared, notIndexed.

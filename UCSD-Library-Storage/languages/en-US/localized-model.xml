@@ -1,0 +1,19 @@
+<localized-model>
+  <title>UCSD Library Storage</title>
+  <subtitle>Initial version</subtitle>
+  <keywords>library, selection, storage</keywords>
+  <authors>
+    <person>
+      <name>Ho Jung Yoo</name>
+    </person>
+    <group>
+      <name>UC San Diego Libraries</name>
+    </group>
+    <person orcid="0000-0002-0153-8465">
+      <name>Michael Bar-Sinai</name>
+    </person>
+    <group>
+      <name>Scholarly Commons WP3:Decision Trees</name>
+    </group>
+  </authors>
+</localized-model>

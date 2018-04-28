@@ -1,0 +1,6 @@
+anonymized: anonymized
+final, or almost final: final, or almost final
+initial: initial
+no: no
+ok: ok
+yes: yes

@@ -13,11 +13,10 @@
   }
 ]
 [>publicAccessLevel< ask: <-- q2
-  {text: What is the required access level for the data }
+  {text: Should the data be publicaly accessible? }
   {answers:
-    {public:     [set: AccessLevel=public; Traits+=directAccess]}
-    {by link:    [set: AccessLevel=byLink; Traits+=directAccess,nonPublicAL]}
-    {non-public: [set: AccessLevel=nonPublic; Traits+=nonPublicAL]}
+    {yes: [set: DataAccess=public]}
+    {no:  [set: DataAccess=private]}
   }
 ]
 [>accessFrequency< ask: <-- q3
@@ -33,14 +32,17 @@
   }
 ]
 [>discoverability< ask: <-- q4
-  {text: Do the data need to be discoverable?}
+  {text: Should the metadata be discoverable?}
+  {terms:
+    {discoverable: EXPLAIN HERE}
+  }
   {answers:
-    {yes: [set: Discoverability=indexed]}
+    {yes: [set: MetadataAccess=indexed]}
     {no: [>discoverability-no< ask:
-      {text: Can the data be made available via a public link?}
+      {text: Would you like the data to be available via a non-indexed, but publicly accessible link?}
       {answers:
-        {yes: [set: Discoverability=public; Traits+=notIndexed]}
-        {no:  [set: Discoverability=hidden; Traits+=notIndexed]}
+        {yes: [set: MetadataAccess=public; Traits+=notIndexed]}
+        {no:  [set: MetadataAccess=private; Traits+=notIndexed]}
       }
     ]}
   }
@@ -71,13 +73,18 @@
 
 [>hipaaCompliance< ask: <-- q7
   {text: Do the data contain HIPAA-regulated data or personally identifiable information? }
-  {terms:
-    { HIPAA-regulated data or personally identifiable information: EXPLAIN HERE}
-  }
   {answers:
       {no: [set: HIPAA=unrelated; Traits += hipaaCleared]}
-      {anonymized: [set: HIPAA=anonymized; Traits += hipaaCleared]}
-      {yes:  [set: HIPAA=full]}
+      {yes:
+        [>hipaaData< ask:  <-- q7a
+          {text: Will the data be de-identified or anonymized prior to deposit? }
+          {terms: }
+          {answers:
+            {yes:[set: HIPAA=anonymized; Traits += hipaaCleared] }
+            {no: [set: HIPAA=full] }
+          }
+        ]
+      }
   }
 ]
 [>noCost< ask: <-- q8
@@ -118,30 +125,30 @@
       {options:
         { initial:
           [when:
-            { AccessLevel=nonPublic; LongTermPreservation=notRequired;
-              Traits+=notIndexed:
+            { DataAccess=private; LongTermPreservation=notRequired;
+              MetadataAccess=private:
                 [set: Storages+=actWrkScr]}] }
         { finalizing:
           [when:
-            {AccessLevel=public; Discoverability=indexed:
+            {DataAccess=public; MetadataAccess=indexed:
                [set: Storages+=ucsdLibDCol_idx] }]
           [when:
-            {Traits+=directAccess,notIndexed:
+            {DataAccess=public; MetadataAccess=public:
               [set: Storages+=ucsdLibDCol]}]
           [when:
-            {Traits+=nonPublicAL,notIndexed; AccessFrequency=low; LongTermPreservation=required:
+            {DataAccess=private; MetadataAccess=private; AccessFrequency=low; LongTermPreservation=required:
                [set:Storages+=chronopolis]}]
         }
       }
     ]
     [when:
-      {Traits+=directAccess,notIndexed; LongTermPreservation=notRequired:
+      {DataAccess=public; Traits+=notIndexed; LongTermPreservation=notRequired:
         [set: Storages+=rdlShare]}
     ]
   }
   {else: <-- Datasets where we don't have approval, or that are subject to HIPAA
     [when:
-      { AccessLevel=nonPublic; Discoverability=indexed:
+      { DataAccess=private; MetadataAccess=indexed:
         [set: Storages+=ucsdLibDCol_mdo] }
     ]
   }

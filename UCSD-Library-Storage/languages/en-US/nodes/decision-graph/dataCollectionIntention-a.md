@@ -1,0 +1,1 @@
+Do you have approval of the creator/owner to share or store a copy of the data on a UCSD server?
