@@ -103,7 +103,7 @@
   {options:
     { full:
       [>hipaa-statement< ask:
-        <* Trick - this is really a disclaimer, implemented as a single answer question. *>
+        <* Design Pattern(!) - this is really a disclaimer, implemented as a single answer question. *>
         {text: The Library does not offer HIPAA-compliant data storage. Please
                contact research-it@ucsd.edu for information about other campus
                solutions. We may be able to provide metadata-only storage.
@@ -120,14 +120,9 @@
 
 [when: <-- route by legal permissions
   { HandlingApproved=Yes; Traits += hipaaCleared:
-    [>rbr< consider: <-- route by revision state
+    [consider: <-- route by revision state
       {slot: RevisionState}
       {options:
-        { initial:
-          [when:
-            { DataAccess=private; LongTermPreservation=notRequired;
-              MetadataAccess=private:
-                [set: Storages+=actWrkScr]}] }
         { finalizing:
           [when:
             {DataAccess=public; MetadataAccess=indexed:
@@ -141,6 +136,9 @@
         }
       }
     ]
+    [when:
+      { DataAccess=private; LongTermPreservation=notRequired; MetadataAccess=private:
+          [set: Storages+=actWrkScr]}]
     [when:
       {DataAccess=public; Traits+=notIndexed; LongTermPreservation=notRequired:
         [set: Storages+=rdlShare]}
