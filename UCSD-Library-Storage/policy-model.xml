@@ -1,13 +1,13 @@
 <policy-model>
   <title>UCSD Library Storage</title>
   <subtitle>Initial version</subtitle>
-  <version>0.3</version>
-  <date>2018-04-28</date>
+  <version>0.4</version>
+  <date>2018-05-30</date>
   <keywords>
     storage, library, selection
   </keywords>
   <authors>
-    <person>
+    <person orcid="0000-0001-9677-0947">
       <name>Ho Jung Yoo</name>
     </person>
     <group url="https://libraries.ucsd.edu/about/who-we-are/index.html">
