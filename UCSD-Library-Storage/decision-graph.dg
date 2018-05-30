@@ -33,18 +33,26 @@
 ]
 [>discoverability< ask: <-- q4
   {text: Should the metadata be discoverable?}
-  {terms:
-    {discoverable: EXPLAIN HERE}
-  }
   {answers:
     {yes: [set: MetadataAccess=indexed]}
-    {no: [>discoverability-no< ask:
-      {text: Would you like the data to be available via a non-indexed, but publicly accessible link?}
-      {answers:
-        {yes: [set: MetadataAccess=public; Traits+=notIndexed]}
-        {no:  [set: MetadataAccess=private; Traits+=notIndexed]}
-      }
-    ]}
+    {no:
+      [set: MetadataAccess = notIndexed]
+      [consider:
+        {slot:DataAccess }
+        {options:
+          {public:
+            [>restrict-data-2< ask:
+              {text: The data are currently marked as "publicaly accessible".
+                     Keep this setting, or restrict data access? }
+              {answers:
+                {keep:}
+                {restrict: [set: DataAccess=private] }
+              }
+            ]
+          }
+        }
+      ]
+    }
   }
 ]
 [>longTerm< ask: <-- q5
@@ -67,7 +75,10 @@
 ]
 
 [when:
-  {HandlingApproved=No: }
+  {HandlingApproved=No:
+    [>reject-handling< reject:
+      Please contact research-data-curation@ucsd.edu to discuss options for storing third-party owned data.]
+  }
   {else: [set: HandlingApproved=Yes]}
 ]
 
@@ -102,15 +113,10 @@
   {slot: HIPAA}
   {options:
     { full:
-      [>hipaa-statement< ask:
-        <* Design Pattern(!) - this is really a disclaimer, implemented as a single answer question. *>
-        {text: The Library does not offer HIPAA-compliant data storage. Please
+      [>hipaa-statement< reject:
+        The Library does not offer HIPAA-compliant data storage. Please
                contact research-it@ucsd.edu for information about other campus
                solutions. We may be able to provide metadata-only storage.
-             }
-        {answers:
-          {ok:}
-        }
       ]
     }
   }
@@ -128,19 +134,20 @@
             {DataAccess=public; MetadataAccess=indexed:
                [set: Storages+=ucsdLibDCol_idx] }]
           [when:
-            {DataAccess=public; MetadataAccess=public:
+            {DataAccess=public; MetadataAccess=notIndexed:
               [set: Storages+=ucsdLibDCol]}]
           [when:
-            {DataAccess=private; MetadataAccess=private; AccessFrequency=low; LongTermPreservation=required:
+            {DataAccess=private; MetadataAccess=notIndexed;
+              AccessFrequency=low; LongTermPreservation=required:
                [set:Storages+=chronopolis]}]
         }
       }
     ]
     [when:
-      { DataAccess=private; LongTermPreservation=notRequired; MetadataAccess=private:
+      { DataAccess=private; LongTermPreservation=notRequired; MetadataAccess=notIndexed:
           [set: Storages+=actWrkScr]}]
     [when:
-      {DataAccess=public; Traits+=notIndexed; LongTermPreservation=notRequired:
+      {MetadataAccess=notIndexed; LongTermPreservation=notRequired:
         [set: Storages+=rdlShare]}
     ]
   }

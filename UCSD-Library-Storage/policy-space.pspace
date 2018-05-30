@@ -10,9 +10,8 @@ AccessLevel: consists of DataAccess, MetadataAccess.
 
 DataAccess: one of public, private.
 
-MetadataAccess: one of indexed [Datast's metadata appears in search results],
-                        public [Dataset's metadata are publicly available via direct link, but do not appear in search results],
-                       private [Dataset's metadata are not publicly available].
+MetadataAccess: one of indexed    [Datast's metadata appears in search results],
+                       notIndexed [Dataset's metadata are not publicly available].
 
 AccessFrequency: one of low, high.
 
@@ -35,4 +34,4 @@ Storages [List of the storage facillities that can store the dataset in question
   chronopolis     [Chronopolis].
 
 Traits [Internal assertions that make the decision tree easier to write]: some of
-  hipaaCleared, notIndexed.
+  hipaaCleared.
