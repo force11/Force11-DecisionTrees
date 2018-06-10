@@ -1,11 +1,5 @@
 <* How to choose an open access journal
  *
- * Run this file by running:
- * java -jar DataTagsLib
- *
- * available tags: complete, preprint, preprintFeedback, journalKnown,
- * licenses, licenseKnown
- *
  * Current open questions:
  *   - Should the preprints part be in a separate chart? Is it a
  *     recommendation or could it be compulsory?
@@ -21,86 +15,88 @@
 {answers:
 
   <-- case where the author has completed writing
-  {yes: [set: complete=yes]
-
-    <-- let's ask about preprints
-    [>qPreprint< ask: {text: Have you submitted a preprint?}
-    {terms:
-         {preprints: a working paper or draft version posted online before peer review.}
-    }
-    {answers:
-
-    <-- case where a preprint exists
-      {yes: [set: preprint=yes]
-        [>feedback< ask: {text: Have you incorporated any feedback you received from the preprint?}
-        {answers:
-          {yes: [set: preprintFeedback=yes]}
-          {no: [set: preprintFeedback=no]
-             [call: qPreprint]}
-        }]
-      } <-- end of 'yes' (preprint submitted)
-
-      <-- where no preprint exists
-      {no: [set: preprint=no]
-         [todo: add something about posting preprints]
-      }
-    }]
+  {yes:
+    [set: complete=yes]
+    [call: preprints]
   } <-- end of 'yes' (writing complete)
 
   <-- where writing is not complete
   {no:[set: complete=no]}
 }] <-- end of asking about writing completeness
 
-[>qJournal< ask: {text: Do you know which journal you will submit to?}
-{terms:
-  {open access: in this context, 'gold open access', i.e. a journal that makes paper freely available to download, reuse and mine as data immediately after publication.}
-  {DOAJ: the directory of open access journals, http://doaj.org}
-}
-{answers:
+[call: journals]
 
-  <-- fully open access journal
-  {yes, a fully open access journal: [set: journalKnown=oa]}
+[end] <-- End of "main" section.
 
-  <-- hybrid journal
-  {yes, a non-open journal with an open access option: [set: journalKnown=hybrid]}
-
-  <-- no open access option
-  {yes, and it has no gold open access option: [set: journalKnown=notOpen]}
-
-  <-- don't know yet
-  {no: [set: journalKnown=no]
-       [reject: consult the Directory of Open Access Journals]
-       [call: qJournal] <-- Go back to asking about which journal.
+[>preprints< section:
+  [>qPreprint< ask: {text: Have you submitted a preprint?}
+  {terms:
+       {preprints: a working paper or draft version posted online before peer review.}
   }
+  {answers:
 
+  <-- case where a preprint exists
+    {yes: [set: preprint=yes]
+      [>feedback< ask: {text: Have you incorporated any feedback you received from the preprint?}
+      {answers:
+        {yes: [set: preprintFeedback=yes]}
+        {no: [set: preprintFeedback=no]}
+      }]
+    } <-- end of 'yes' (preprint submitted)
 
-}]
+    <-- where no preprint exists
+    {no: [set: preprint=no]
+       [todo: add something about posting preprints]
+    }
+  }]
+]
 
-<-- Check the Think.Check.Submit Guidelines
-[>qtcs< ask: {text: Does the journal match most of the Think Check Submit guidelines?}
-{terms:
-  {think.check.submit: guidelines at thinkchecksubmit.org/check for choosing a good journal}
-}
-{answers:
-  {yes: [set: tcs=yes]}
-  {no: [set:tcs=no]
-     [call: qJournal]
+[>journals< section:
+  [>qJournal< ask: {text: Do you know which journal you will submit to?}
+  {terms:
+    {open access: in this context, 'gold open access', i.e. a journal that makes paper freely available to download, reuse and mine as data immediately after publication.}
+    {DOAJ: the directory of open access journals, http://doaj.org}
   }
-}]
+  {answers:
 
-<-- let's see about licensing
-[>qlic< ask: {text: Does the journal provide a choice of licenses?}
-{terms:
-  {copyright: defines ownership of the document and who has the right to determine its use.}
-  {license: defines how the document can be used, e.g. who can distribute, read or reuse it.}
-  {creative commons: a licensing organisation that produces licenses intended to be open, see https://creativecommons.org. }
-}
-{answers:
+    <-- fully open access journal
+    {yes, a fully open access journal: [set: journalKnown=oa]}
 
-  <-- range of licensing choices
-  {yes: [set: licenses=many]}
+    <-- hybrid journal
+    {yes, a non-open journal with an open access option: [set: journalKnown=hybrid]}
 
-  <-- only one choice of license
-  {no: [set: licenses=single]}
+    <-- no open access option
+    {yes, and it has no gold open access option: [set: journalKnown=notOpen]}
 
-}]
+    <-- don't know yet
+    {no: [set: journalKnown=no]
+         [reject: Please consult the Directory of Open Access Journals]
+    }
+  }]
+  <-- Check the Think.Check.Submit Guidelines
+  [>qtcs< ask: {text: Does the journal match most of the Think Check Submit guidelines?}
+  {terms:
+    {think.check.submit: guidelines at thinkchecksubmit.org/check for choosing a good journal}
+  }
+  {answers:
+    {yes: [set: tcs=yes]}
+    {no: [set:tcs=no]}
+  }]
+
+  <-- let's see about licensing
+  [>qlic< ask: {text: Does the journal provide a choice of licenses?}
+  {terms:
+    {copyright: defines ownership of the document and who has the right to determine its use.}
+    {license: defines how the document can be used, e.g. who can distribute, read or reuse it.}
+    {creative commons: a licensing organisation that produces licenses intended to be open, see https://creativecommons.org. }
+  }
+  {answers:
+
+    <-- range of licensing choices
+    {yes: [set: licenses=many]}
+
+    <-- only one choice of license
+    {no: [set: licenses=single]}
+
+  }]
+]

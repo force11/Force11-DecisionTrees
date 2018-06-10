@@ -1,8 +1,8 @@
 <policy-model>
   <title>Open Access Publishing</title>
   <subtitle></subtitle>
-  <version>0.1</version>
-  <date>2017-08-01</date>
+  <version>0.2</version>
+  <date>2018-06-10</date>
   <keywords>
     Open Access, Journal
   </keywords>
@@ -12,7 +12,7 @@
     </person>
   </authors>
   <model answers-order="yes-first">
-    <space root="DataTags">oaJournalChooser.ts</space>
+    <space root="OpenAccessJournal">oaJournalChooser.ts</space>
     <graph>oaJournalChooser.dg</graph>
   </model>
 </policy-model>

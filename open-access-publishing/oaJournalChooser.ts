@@ -1,7 +1,7 @@
-<* Tag suit for choosing an open access journal 
+<* Tag suit for choosing an open access journal
 *>
 
-DataTags: consists of complete, preprint, preprintFeedback, journalKnown, licenses, licenseKnown, tcs.
+OpenAccessJournal: consists of complete, preprint, preprintFeedback, journalKnown, licenses, licenseKnown, tcs.
 
 complete [has the paper been written?]: one of yes, no.
 preprint [has a preprint been posted?]: one of yes, no.
