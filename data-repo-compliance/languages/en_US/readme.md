@@ -1,6 +1,6 @@
 # Force11-Repository Compliance
 
-__Version 0.2__
+__Version 0.6__
 
 Repositories are the publishers of scholarly objects within the commons.  We therefore view repositories as an essential piece of the commons by providing the means by which individual researchers can achieve commons compliance without having to understand all the intricacies of creating open, FAIR and citable objects.  To achieve this, the repository itself must trustworthy, that is, they must ensure the stability and persistence of objects within the commons and adhere themselves to the principles of the commons.  
 
