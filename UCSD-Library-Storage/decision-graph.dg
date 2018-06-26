@@ -84,13 +84,13 @@
 [>hipaaCompliance< ask: <-- q7
   {text: Do the data contain HIPAA-regulated data or personally identifiable information? }
   {answers:
-      {no: [set: HIPAA=unrelated; Traits += hipaaCleared]}
+      {no: [set: HIPAA=unrelated ]}
       {yes:
         [>hipaaData< ask:  <-- q7a
           {text: Will the data be de-identified or anonymized prior to deposit? }
           {terms: }
           {answers:
-            {yes:[set: HIPAA=anonymized; Traits += hipaaCleared] }
+            {yes:[set: HIPAA=anonymized ] }
             {no: [set: HIPAA=full] }
           }
         ]

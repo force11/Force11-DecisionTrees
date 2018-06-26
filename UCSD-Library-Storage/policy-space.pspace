@@ -1,5 +1,4 @@
-LibStorage: consists of RevisionState, HIPAA, Handling, Storages, HandlingApproved,
-                        Traits.
+LibStorage: consists of RevisionState, HIPAA, Handling, Storages, HandlingApproved.
 
 RevisionState[How close the data are to their final form]: one of initial, finalizing.
 
@@ -32,6 +31,3 @@ Storages [List of the storage facillities that can store the dataset in question
   ucsdLibDCol_mdo [UC San Diego Library Digital Collections with metadata only + alternative storage],
   rdlShare        [RDL-share],
   chronopolis     [Chronopolis].
-
-Traits [Internal assertions that make the decision tree easier to write]: some of
-  hipaaCleared.
