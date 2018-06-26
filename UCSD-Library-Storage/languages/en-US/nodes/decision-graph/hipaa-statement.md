@@ -1,1 +1,0 @@
-The Library does not offer HIPAA-compliant data storage. We may be able to provide storage and indexing for your metadata only. Please contact research-it@ucsd.edu for information about other campus storage solutions. 

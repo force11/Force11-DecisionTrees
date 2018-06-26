@@ -42,11 +42,10 @@
         {options:
           {public:
             [>restrict-data-2< ask:
-              {text: The data are currently marked as "publicaly accessible".
-                     Keep this setting, or restrict data access? }
+              {text: Would you like your data to be accessible to anyone with the link? }
               {answers:
-                {keep:}
-                {restrict: [set: DataAccess=private] }
+                {yes:}
+                {no: [set: DataAccess=private] }
               }
             ]
           }
@@ -113,7 +112,7 @@
   {slot: HIPAA}
   {options:
     { full:
-      [>hipaa-statement< reject:
+      [>reject-hipaa< reject:
         The Library does not offer HIPAA-compliant data storage. Please
                contact research-it@ucsd.edu for information about other campus
                solutions. We may be able to provide metadata-only storage.
@@ -124,37 +123,50 @@
 
 <* Now that we're sure we can handle the data, where do we route it to? *>
 
-[when: <-- route by legal permissions
-  { HandlingApproved=Yes; Traits += hipaaCleared:
-    [consider: <-- route by revision state
-      {slot: RevisionState}
-      {options:
-        { finalizing:
-          [when:
-            {DataAccess=public; MetadataAccess=indexed:
-               [set: Storages+=ucsdLibDCol_idx] }]
-          [when:
-            {DataAccess=public; MetadataAccess=notIndexed:
-              [set: Storages+=ucsdLibDCol]}]
-          [when:
-            {DataAccess=private; MetadataAccess=notIndexed;
-              AccessFrequency=low; LongTermPreservation=required:
-               [set:Storages+=chronopolis]}]
+[consider: <-- route by revision state
+  {slot: RevisionState}
+  {options:
+    { finalizing:
+      [when:
+        {DataAccess=public; MetadataAccess=indexed:
+          [set: Storages+=ucsdLibDCol_idx]
         }
-      }
-    ]
-    [when:
-      { DataAccess=private; LongTermPreservation=notRequired; MetadataAccess=notIndexed:
-          [set: Storages+=actWrkScr]}]
-    [when:
-      {MetadataAccess=notIndexed; LongTermPreservation=notRequired:
-        [set: Storages+=rdlShare]}
-    ]
+      ]
+      [when:
+        {DataAccess=public; MetadataAccess=notIndexed:
+          [set: Storages+=ucsdLibDCol]
+        }
+      ]
+      [when:
+        {DataAccess=private; MetadataAccess=notIndexed;
+          AccessFrequency=low; LongTermPreservation=required:
+          [set:Storages+=chronopolis]
+        }
+      ]
+    }
   }
-  {else: <-- Datasets where we don't have approval, or that are subject to HIPAA
-    [when:
-      { DataAccess=private; MetadataAccess=indexed:
-        [set: Storages+=ucsdLibDCol_mdo] }
-    ]
+]
+[consider:
+  {slot: MetadataAccess}
+  {options:
+    { notIndexed:
+      [when:
+        { DataAccess=private; LongTermPreservation=notRequired:
+          [set: Storages+=actWrkScr]
+        }
+      ]
+      [when:
+        { LongTermPreservation=notRequired:
+          [set: Storages+=rdlShare]
+        }
+      ]
+    }
+    { indexed:
+      [when:
+        { DataAccess=private:
+          [set: Storages+=ucsdLibDCol_mdo]
+        }
+      ]
+    }
   }
 ]
