@@ -1,10 +1,11 @@
-[>main< call: sOpen]
-[call: sFAIR]
-[call: sCitable]
-[call: sTrustworthy]
+[>main< call: pOpen]
+[call: pFAIR]
+[call: pCitable]
+[call: pTrustworthy]
 [end]
 
-[>sOpen< section:
+[-->pOpen<
+  [>sOpen< section:
   {title: Openness}
   [>open< ask:
     {text: Does the repository provide access to the data with minimal or no restrictions? }
@@ -36,6 +37,9 @@
     {else:[set: Open=Closed]}
   ]
 ]
+--]
+
+[-->pFAIR<
 [>sFAIR< section:
   {title: Testing whether a repository implements FAIR}
   [>FAIR< ask:
@@ -95,7 +99,9 @@
       {else:[set: FAIR=UnFAIR]}
     ]
 ]
+--]
 
+[-->pCitable<
 [>sCitable< section:
   {title: Citable}
   [>citable< ask:
@@ -119,7 +125,9 @@
     }
   ]
 ]
+--]
 
+[-->pTrustworthy<
 [>sTrustworthy< section:
   {title: Trustworthy-ness}
   [>trustworthy< ask:
@@ -153,3 +161,4 @@
     }
   ]
 ]
+--]

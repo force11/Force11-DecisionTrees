@@ -1,0 +1,5 @@
+no: no
+yes: yes
+yes, a fully open access journal: yes, a fully open access journal
+yes, a non-open journal with an open access option: yes, a non-open journal with an open access option
+yes, and it has no gold open access option: yes, and it has no gold open access option

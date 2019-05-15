@@ -28,7 +28,7 @@
 
 [end] <-- End of "main" section.
 
-[>preprints< section:
+[-->preprints<
   [>qPreprint< ask: {text: Have you submitted a preprint?}
   {terms:
        {preprints: a working paper or draft version posted online before peer review.}
@@ -49,9 +49,9 @@
        [todo: add something about posting preprints]
     }
   }]
-]
+--]
 
-[>journals< section:
+[-->journals<
   [>qJournal< ask: {text: Do you know which journal you will submit to?}
   {terms:
     {open access: in this context, 'gold open access', i.e. a journal that makes paper freely available to download, reuse and mine as data immediately after publication.}
@@ -99,4 +99,4 @@
     {no: [set: licenses=single]}
 
   }]
-]
+--]
